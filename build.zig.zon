@@ -1,0 +1,5 @@
+.{
+    .name = "libdeflate",
+    .version = "1.18.0-1",
+    .dependencies = .{},
+}
