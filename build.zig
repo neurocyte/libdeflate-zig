@@ -66,9 +66,9 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     lib.linkLibC();
-    lib.addIncludePath(.{ .path = "." });
+    lib.addIncludePath(b.path("."));
     lib.addCSourceFiles(.{ .files = &source_files, .flags = &flags });
 
     b.installArtifact(lib);
-    lib.installHeader(.{ .path = "libdeflate.h" }, "libdeflate.h");
+    lib.installHeader(b.path("libdeflate.h"), "libdeflate.h");
 }
