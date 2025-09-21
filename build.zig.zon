@@ -1,5 +1,6 @@
 .{
-    .name = "libdeflate",
+    .name = .libdeflate,
+    .fingerprint = 0x3583a8cae14dd9df,
     .version = "1.18.0-1",
     .dependencies = .{},
     .paths = .{

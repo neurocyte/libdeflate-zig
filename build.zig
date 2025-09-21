@@ -60,11 +60,10 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const lib = b.addStaticLibrary(.{
-        .name = "deflate",
+    const lib = b.addLibrary(.{ .name = "deflate", .root_module = b.createModule(.{
         .target = target,
         .optimize = optimize,
-    });
+    }), .linkage = std.builtin.LinkMode.static });
     lib.linkLibC();
     lib.addIncludePath(b.path("."));
     lib.addCSourceFiles(.{ .files = &source_files, .flags = &flags });
